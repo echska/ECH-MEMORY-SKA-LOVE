@@ -14,7 +14,7 @@ export default function Moments({ t }: Props) {
       title: t.moment1_title,
       text: t.moment1_text,
       memory: t.moment1_memory,
-      image: `${BASE}images/photo1.png`,
+      image: `${BASE}images/photo1.jpg`,
     },
     {
       time: t.moment2_time,

@@ -9,9 +9,10 @@ interface Props {
 
 export default function Photos({ t }: Props) {
   const photos = [
-    { src: `${BASE}images/photo1.png`, text: t.photo1_text },
+    { src: `${BASE}images/photo1.jpg`, text: t.photo1_text },
     { src: `${BASE}images/photo2.png`, text: t.photo2_text },
     { src: `${BASE}images/photo3.png`, text: t.photo3_text },
+    { src: `${BASE}images/photo4.jpg`, text: t.photo4_text },
   ];
 
   return (
