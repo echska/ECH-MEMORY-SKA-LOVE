@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { type Translations } from "@/i18n/translations";
 import Footer from "@/components/Footer";
 
@@ -8,6 +9,8 @@ interface Props {
 }
 
 export default function Photos({ t }: Props) {
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
   const photos = [
     { src: `${BASE}images/photo1.jpg`, text: t.photo1_text },
     { src: `${BASE}images/photo2.png`, text: t.photo2_text },
@@ -25,11 +28,23 @@ export default function Photos({ t }: Props) {
       <div className="photo-grid">
         {photos.map((p, i) => (
           <div key={i} className="photo-card glass">
-            <img src={p.src} alt="" className="photo-img" />
+            <img
+              src={p.src}
+              alt=""
+              className="photo-img"
+              onClick={() => setLightbox(p.src)}
+              style={{ cursor: "pointer" }}
+            />
             <p className="photo-caption">{p.text}</p>
           </div>
         ))}
       </div>
+
+      {lightbox && (
+        <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
+          <img src={lightbox} alt="" className="lightbox-img" />
+        </div>
+      )}
 
       <Footer text={t.photos_footer} />
     </div>
