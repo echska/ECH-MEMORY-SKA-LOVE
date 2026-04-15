@@ -66,6 +66,10 @@ export interface Translations {
   song1_text: string;
   song2_title: string;
   song2_text: string;
+  song3_title: string;
+  song3_text: string;
+  song4_title: string;
+  song4_text: string;
   songs_footer: string;
   videos_title: string;
   videos_text: string;
@@ -172,6 +176,10 @@ export const translations: Record<Lang, Translations> = {
     song1_text: "Her a\u00e7\u0131ld\u0131\u011f\u0131nda ac\u0131 en ba\u015ftan d\u00f6n\u00fcyor.",
     song2_title: "\u015eark\u0131 2",
     song2_text: "Bu sadece bir \u015fark\u0131 de\u011fil; uykusuz bir geceye a\u00e7\u0131lan pencere.",
+    song3_title: "Moroor - Haamim",
+    song3_text: "Ge\u00e7mi\u015f tek bir \u015fark\u0131da geri d\u00f6ner.",
+    song4_title: "I Was Never There - The Weeknd",
+    song4_text: "Sanki hi\u00e7 orada olmam\u0131\u015ft\u0131m... ama izim her yerde.",
     songs_footer: "Baz\u0131 \u015fark\u0131lar sadece kulakla de\u011fil, kalple de dinlenir.",
     videos_title: "Videolar",
     videos_text: "K\u0131sa sahneler, ama etkileri zamandan daha uzun.",
@@ -276,6 +284,10 @@ export const translations: Record<Lang, Translations> = {
     song1_text: "\u0647\u0631 \u0628\u0627\u0631 \u067e\u062e\u0634 \u0645\u06cc\u200c\u0634\u0648\u062f\u060c \u062f\u0631\u062f \u0627\u0632 \u0627\u0648\u0644 \u0628\u0631\u0645\u06cc\u200c\u06af\u0631\u062f\u062f.",
     song2_title: "\u0622\u0647\u0646\u06af 2",
     song2_text: "\u0627\u06cc\u0646 \u0641\u0642\u0637 \u0622\u0647\u0646\u06af \u0646\u06cc\u0633\u062a\u061b \u067e\u0646\u062c\u0631\u0647\u200c\u0627\u06cc \u0627\u0633\u062a \u0628\u0647 \u0634\u0628\u06cc \u0628\u06cc\u200c\u062e\u0648\u0627\u0628.",
+    song3_title: "\u0645\u0631\u0648\u0631 - \u062d\u0627\u0645\u06cc\u0645",
+    song3_text: "\u06af\u0630\u0634\u062a\u0647 \u062f\u0631 \u06cc\u06a9 \u0622\u0647\u0646\u06af \u0628\u0631\u0645\u06cc\u200c\u06af\u0631\u062f\u062f.",
+    song4_title: "I Was Never There - The Weeknd",
+    song4_text: "\u0627\u0646\u06af\u0627\u0631 \u0647\u06cc\u0686\u200c\u0648\u0642\u062a \u0622\u0646\u062c\u0627 \u0646\u0628\u0648\u062f\u0645... \u0627\u0645\u0627 \u0631\u062f\u0645 \u0647\u0645\u0647 \u062c\u0627 \u0647\u0633\u062a.",
     songs_footer: "\u0628\u0639\u0636\u06cc \u0622\u0647\u0646\u06af\u200c\u0647\u0627 \u0641\u0642\u0637 \u0628\u0627 \u06af\u0648\u0634 \u0634\u0646\u06cc\u062f\u0647 \u0646\u0645\u06cc\u200c\u0634\u0648\u0646\u062f\u060c \u0628\u0627 \u062f\u0644 \u0647\u0645 \u0634\u0646\u06cc\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u0646\u062f.",
     videos_title: "\u0648\u06cc\u062f\u06cc\u0648\u0647\u0627",
     videos_text: "\u0635\u062d\u0646\u0647\u200c\u0647\u0627\u06cc \u06a9\u0648\u062a\u0627\u0647\u060c \u0627\u0645\u0627 \u0627\u062b\u0631\u0634\u0627\u0646 \u0627\u0632 \u0632\u0645\u0627\u0646 \u0637\u0648\u0644\u0627\u0646\u06cc\u200c\u062a\u0631 \u0627\u0633\u062a.",
@@ -380,6 +392,10 @@ export const translations: Record<Lang, Translations> = {
     song1_text: "\u0643\u0644\u0645\u0627 \u0627\u0634\u062a\u063a\u0644\u062a\u060c \u0639\u0627\u062f \u0627\u0644\u0648\u062c\u0639 \u0645\u0646 \u0623\u0648\u0644\u0647.",
     song2_title: "\u0623\u063a\u0646\u064a\u0629 2",
     song2_text: "\u0647\u0630\u0647 \u0644\u064a\u0633\u062a \u0623\u063a\u0646\u064a\u0629 \u0641\u0642\u0637\u060c \u0647\u0630\u0647 \u0646\u0627\u0641\u0630\u0629 \u062a\u064f\u0641\u062a\u062d \u0639\u0644\u0649 \u0644\u064a\u0644\u064d \u0644\u0645 \u064a\u0643\u062a\u0645\u0644 \u0646\u0648\u0645\u0647.",
+    song3_title: "\u0645\u0631\u0648\u0631 - \u062d\u0627\u0645\u064a\u0645",
+    song3_text: "\u0627\u0644\u0645\u0627\u0636\u064a \u064a\u0639\u0648\u062f \u0641\u064a \u0623\u063a\u0646\u064a\u0629 \u0648\u0627\u062d\u062f\u0629.",
+    song4_title: "I Was Never There - The Weeknd",
+    song4_text: "\u0643\u0623\u0646\u0646\u064a \u0644\u0645 \u0623\u0643\u0646 \u0647\u0646\u0627\u0643 \u0623\u0628\u062f\u064b\u0627... \u0644\u0643\u0646 \u0623\u062b\u0631\u064a \u0641\u064a \u0643\u0644 \u0645\u0643\u0627\u0646.",
     songs_footer: "\u0628\u0639\u0636 \u0627\u0644\u0623\u063a\u0627\u0646\u064a \u0644\u0627 \u062a\u064f\u0633\u0645\u0639 \u0628\u0627\u0644\u0623\u0630\u0646 \u0641\u0642\u0637\u060c \u0628\u0644 \u0628\u0627\u0644\u0642\u0644\u0628 \u0623\u064a\u0636\u064b\u0627.",
     videos_title: "\u0627\u0644\u0641\u064a\u062f\u064a\u0648",
     videos_text: "\u0644\u0642\u0637\u0627\u062a \u0642\u0635\u064a\u0631\u0629\u060c \u0644\u0643\u0646 \u0623\u062b\u0631\u0647\u0627 \u0623\u0637\u0648\u0644 \u0645\u0646 \u0627\u0644\u0648\u0642\u062a \u0646\u0641\u0633\u0647.",
@@ -484,6 +500,10 @@ export const translations: Record<Lang, Translations> = {
     song1_text: "Whenever it plays, the pain returns from the beginning.",
     song2_title: "Song 2",
     song2_text: "This is not just a song; it is a window opening onto a sleepless night.",
+    song3_title: "Moroor - Haamim",
+    song3_text: "The past returns in a single song.",
+    song4_title: "I Was Never There - The Weeknd",
+    song4_text: "As if I was never there... but my trace is everywhere.",
     songs_footer: "Some songs are not heard only with the ear, but with the heart too.",
     videos_title: "Videos",
     videos_text: "Short scenes, but their impact lasts longer than time itself.",
