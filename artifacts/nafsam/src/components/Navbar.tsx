@@ -9,8 +9,8 @@ export default function Navbar({ t }: Props) {
   const [location] = useLocation();
 
   const links = [
-    { href: "/login", label: t.nav_login },
-    { href: "/", label: t.nav_home },
+    { href: "/", label: t.nav_login },
+    { href: "/home", label: t.nav_home },
     { href: "/moments", label: t.nav_moments },
     { href: "/photos", label: t.nav_photos },
     { href: "/songs", label: t.nav_songs },

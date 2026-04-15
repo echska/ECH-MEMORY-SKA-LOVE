@@ -1,4 +1,5 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { useState, useEffect } from "react";
+import { Switch, Route, Router as WouterRouter, useLocation, Redirect } from "wouter";
 import { useLang } from "@/hooks/useLang";
 import Rain from "@/components/Rain";
 import Navbar from "@/components/Navbar";
@@ -11,39 +12,56 @@ import Songs from "@/pages/Songs";
 import Videos from "@/pages/Videos";
 import Writings from "@/pages/Writings";
 
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const authed = localStorage.getItem("nafsam_auth") === "1";
+  if (!authed) return <Redirect to="/" />;
+  return <>{children}</>;
+}
+
 function AppContent() {
   const { lang, setLang, t } = useLang();
+  const [authed, setAuthed] = useState(
+    () => localStorage.getItem("nafsam_auth") === "1"
+  );
+  const [location] = useLocation();
+
+  useEffect(() => {
+    const check = () => setAuthed(localStorage.getItem("nafsam_auth") === "1");
+    window.addEventListener("storage", check);
+    check();
+    return () => window.removeEventListener("storage", check);
+  }, [location]);
 
   return (
     <div className="app-shell">
       <Rain />
-      <Navbar t={t} />
+      {authed && <Navbar t={t} />}
       <LanguageSwitcher lang={lang} setLang={setLang} mini />
       <main>
         <Switch>
           <Route path="/">
-            <Home t={t} />
+            <Login t={t} onAuth={() => setAuthed(true)} />
           </Route>
-          <Route path="/login">
-            <Login t={t} />
+          <Route path="/home">
+            <ProtectedRoute><Home t={t} /></ProtectedRoute>
           </Route>
           <Route path="/moments">
-            <Moments t={t} />
+            <ProtectedRoute><Moments t={t} /></ProtectedRoute>
           </Route>
           <Route path="/photos">
-            <Photos t={t} />
+            <ProtectedRoute><Photos t={t} /></ProtectedRoute>
           </Route>
           <Route path="/songs">
-            <Songs t={t} />
+            <ProtectedRoute><Songs t={t} /></ProtectedRoute>
           </Route>
           <Route path="/videos">
-            <Videos t={t} />
+            <ProtectedRoute><Videos t={t} /></ProtectedRoute>
           </Route>
           <Route path="/writings">
-            <Writings t={t} />
+            <ProtectedRoute><Writings t={t} /></ProtectedRoute>
           </Route>
           <Route>
-            <Home t={t} />
+            <Redirect to="/" />
           </Route>
         </Switch>
       </main>

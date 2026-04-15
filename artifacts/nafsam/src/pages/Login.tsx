@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { type Translations } from "@/i18n/translations";
+import usePageAudio from "@/hooks/usePageAudio";
 
 const PASSWORDS = ["ashkim", "nafasm", "kaar", "asgoori", "lucifer", "ech&ska", "kchm", "nafas", "ech"];
 
@@ -45,9 +46,11 @@ const USER_CARDS = [
 
 interface Props {
   t: Translations;
+  onAuth?: () => void;
 }
 
-export default function Login({ t }: Props) {
+export default function Login({ t, onAuth }: Props) {
+  usePageAudio("login_song.mp3");
   const [countdown, setCountdown] = useState<CountdownTime | null>(
     getCountdown(new Date())
   );
@@ -57,6 +60,12 @@ export default function Login({ t }: Props) {
   const [, setLocation] = useLocation();
 
   const isOpen = countdown === null;
+
+  useEffect(() => {
+    if (localStorage.getItem("nafsam_auth") === "1") {
+      setLocation("/home");
+    }
+  }, [setLocation]);
 
   useEffect(() => {
     const iv = setInterval(() => {
@@ -85,7 +94,8 @@ export default function Login({ t }: Props) {
       setMsg(t.login_msg_success);
       setMsgType("success");
       localStorage.setItem("nafsam_auth", "1");
-      setTimeout(() => setLocation("/"), 800);
+      onAuth?.();
+      setTimeout(() => setLocation("/home"), 800);
     } else {
       setMsg(t.login_msg_wrong);
       setMsgType("error");
