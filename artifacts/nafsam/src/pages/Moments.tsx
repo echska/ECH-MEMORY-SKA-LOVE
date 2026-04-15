@@ -1,5 +1,6 @@
 import { type Translations } from "@/i18n/translations";
 import Footer from "@/components/Footer";
+import usePageAudio from "@/hooks/usePageAudio";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -8,6 +9,7 @@ interface Props {
 }
 
 export default function Moments({ t }: Props) {
+  usePageAudio("song1.mp3");
   const moments = [
     {
       time: t.moment1_time,

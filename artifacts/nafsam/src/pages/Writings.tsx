@@ -1,11 +1,13 @@
 import { type Translations } from "@/i18n/translations";
 import Footer from "@/components/Footer";
+import usePageAudio from "@/hooks/usePageAudio";
 
 interface Props {
   t: Translations;
 }
 
 export default function Writings({ t }: Props) {
+  usePageAudio("song3.mp3");
   const entries = [t.w1, t.w2, t.w3, t.w4, t.w5, t.w6, t.w7, t.w8, t.w9, t.w10];
 
   return (

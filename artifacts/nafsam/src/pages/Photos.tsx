@@ -2,6 +2,7 @@ import { useState } from "react";
 import { type Translations } from "@/i18n/translations";
 import Footer from "@/components/Footer";
 import { allPhotos } from "@/data/allPhotos";
+import usePageAudio from "@/hooks/usePageAudio";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function Photos({ t }: Props) {
+  usePageAudio("song2.mp3");
   const [lightbox, setLightbox] = useState<string | null>(null);
 
   const specialPhotos = [
