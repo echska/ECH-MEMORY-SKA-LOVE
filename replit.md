@@ -16,6 +16,22 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 - **API codegen**: Orval (from OpenAPI spec)
 - **Build**: esbuild (CJS bundle)
 
+## Artifacts
+
+### Nafsam (artifacts/nafsam)
+Personal memory archive site with dark glassmorphism aesthetics. Frontend-only React+Vite app.
+- **Features**: Animated rain, multilingual support (TR/FA/AR/EN), countdown timers, riddle-based login, typed text animation, rotating quotes
+- **Pages**: Home, Login, Moments, Photos, Songs, Videos, Writings
+- **Tech**: React, Vite, wouter routing, custom CSS (no Tailwind), Inter font
+- **Port**: 19579, preview path: /
+- **Key files**:
+  - `src/i18n/translations.ts` - 4-language translation data
+  - `src/hooks/useLang.ts` - Language state with localStorage persistence
+  - `src/pages/` - All page components
+  - `src/components/` - Rain, TypedText, Navbar, LanguageSwitcher, Footer
+  - `public/images/` - hero.png, photo1-3.png
+  - `public/media/` - video1.mp4
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages
