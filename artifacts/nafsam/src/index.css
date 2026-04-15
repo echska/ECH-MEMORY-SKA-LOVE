@@ -416,6 +416,34 @@ main{flex:1}
   text-align:center;
 }
 
+.album-divider{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  max-width:1100px;
+  margin:40px auto 20px;
+  padding:0 20px;
+}
+.album-divider-line{
+  flex:1;
+  height:1px;
+  background:var(--pink-dim);
+  opacity:.4;
+}
+.album-divider-text{
+  color:var(--pink);
+  font-size:.9rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.album-grid .photo-card{
+  padding:0;
+}
+.album-grid .photo-img{
+  height:260px;
+}
+
 .lightbox-overlay{
   position:fixed;
   inset:0;
