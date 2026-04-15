@@ -1,16 +1,18 @@
 import { useState } from "react";
-import { type Translations } from "@/i18n/translations";
+import { type Translations, type Lang } from "@/i18n/translations";
 import Footer from "@/components/Footer";
 import { allPhotos } from "@/data/allPhotos";
+import { getPhotoCaption } from "@/data/photoCaptions";
 import usePageAudio from "@/hooks/usePageAudio";
 
 const BASE = import.meta.env.BASE_URL;
 
 interface Props {
   t: Translations;
+  lang: Lang;
 }
 
-export default function Photos({ t }: Props) {
+export default function Photos({ t, lang }: Props) {
   usePageAudio("song2.mp3");
   const [lightbox, setLightbox] = useState<string | null>(null);
 
@@ -23,8 +25,9 @@ export default function Photos({ t }: Props) {
     { src: `${BASE}images/photo6.jpg`, text: t.photo6_text },
   ];
 
-  const albumPhotos = allPhotos.map((name) => ({
+  const albumPhotos = allPhotos.map((name, i) => ({
     src: `${BASE}images/all_photos/${name}`,
+    caption: getPhotoCaption(i, lang),
   }));
 
   return (
@@ -65,6 +68,7 @@ export default function Photos({ t }: Props) {
               onClick={() => setLightbox(p.src)}
               style={{ cursor: "pointer" }}
             />
+            <p className="photo-caption album-caption">{p.caption}</p>
           </div>
         ))}
       </div>

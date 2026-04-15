@@ -415,6 +415,13 @@ main{flex:1}
   line-height:1.5;
   text-align:center;
 }
+.album-caption{
+  font-style:italic;
+  font-size:.82rem;
+  padding:12px 14px;
+  opacity:.8;
+  border-top:1px solid rgba(232,180,188,.12);
+}
 
 .album-divider{
   display:flex;
