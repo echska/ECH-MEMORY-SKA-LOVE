@@ -19,6 +19,8 @@ export default function Photos({ t }: Props) {
     { src: `${BASE}images/photo2.png`, text: t.photo2_text },
     { src: `${BASE}images/photo3.png`, text: t.photo3_text },
     { src: `${BASE}images/photo4.jpg`, text: t.photo4_text },
+    { src: `${BASE}images/photo5.jpg`, text: t.photo5_text },
+    { src: `${BASE}images/photo6.jpg`, text: t.photo6_text },
   ];
 
   const albumPhotos = allPhotos.map((name) => ({
