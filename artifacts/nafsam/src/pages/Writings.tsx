@@ -26,6 +26,16 @@ export default function Writings({ t }: Props) {
         ))}
       </div>
 
+      <div className="farewell-section">
+        <div className="farewell-card glass">
+          <h2 className="farewell-title">{t.farewell_title}</h2>
+          <div className="farewell-divider" />
+          {t.farewell_text.split("\n\n").map((paragraph, i) => (
+            <p key={i} className="farewell-paragraph">{paragraph}</p>
+          ))}
+        </div>
+      </div>
+
       <Footer text={t.writings_footer} />
     </div>
   );
