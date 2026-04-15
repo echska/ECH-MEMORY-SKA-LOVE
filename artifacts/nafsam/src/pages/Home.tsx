@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { type Translations } from "@/i18n/translations";
 import TypedText from "@/components/TypedText";
 import Footer from "@/components/Footer";
+import usePageAudio from "@/hooks/usePageAudio";
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -23,6 +24,7 @@ interface Props {
 }
 
 export default function Home({ t }: Props) {
+  usePageAudio("song4.mp3");
   const [quoteIdx, setQuoteIdx] = useState(0);
   const [el, setEl] = useState(elapsed(new Date()));
 
