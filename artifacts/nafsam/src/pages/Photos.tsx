@@ -71,7 +71,14 @@ export default function Photos({ t }: Props) {
 
       {lightbox && (
         <div className="lightbox-overlay" onClick={() => setLightbox(null)}>
-          <img src={lightbox} alt="" className="lightbox-img" />
+          <button
+            className="lightbox-close"
+            onClick={(e) => { e.stopPropagation(); setLightbox(null); }}
+            aria-label="Close"
+          >
+            &times;
+          </button>
+          <img src={lightbox} alt="" className="lightbox-img" onClick={(e) => e.stopPropagation()} />
         </div>
       )}
 
