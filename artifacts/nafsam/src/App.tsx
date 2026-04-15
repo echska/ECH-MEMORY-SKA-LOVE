@@ -49,7 +49,7 @@ function AppContent() {
             <ProtectedRoute><Moments t={t} /></ProtectedRoute>
           </Route>
           <Route path="/photos">
-            <ProtectedRoute><Photos t={t} /></ProtectedRoute>
+            <ProtectedRoute><Photos t={t} lang={lang} /></ProtectedRoute>
           </Route>
           <Route path="/songs">
             <ProtectedRoute><Songs t={t} /></ProtectedRoute>
