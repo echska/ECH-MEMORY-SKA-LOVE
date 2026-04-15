@@ -50,6 +50,20 @@ export default function Photos({ t, lang }: Props) {
             <p className="photo-caption">{p.text}</p>
           </div>
         ))}
+
+        <div className="photo-card glass photo-card-featured">
+          <img
+            src={`${BASE}images/photo7.jpg`}
+            alt=""
+            className="photo-img"
+            onClick={() => setLightbox(`${BASE}images/photo7.jpg`)}
+            style={{ cursor: "pointer" }}
+          />
+          <div className="photo-caption-featured">
+            <p className="featured-quote">{t.photo7_text}</p>
+            <p className="featured-sub">{t.photo7_sub}</p>
+          </div>
+        </div>
       </div>
 
       <div className="album-divider">

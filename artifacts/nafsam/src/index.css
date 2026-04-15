@@ -422,6 +422,31 @@ main{flex:1}
   opacity:.8;
   border-top:1px solid rgba(232,180,188,.12);
 }
+.photo-card-featured{
+  grid-column:1/-1;
+  max-width:520px;
+  margin:12px auto;
+  border:1px solid rgba(232,180,188,.2);
+}
+.photo-caption-featured{
+  padding:20px 22px;
+  text-align:center;
+}
+.featured-quote{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;
+  color:var(--accent);
+  line-height:1.7;
+  margin-bottom:10px;
+  font-style:italic;
+}
+.featured-sub{
+  font-size:.88rem;
+  color:var(--text-dim);
+  line-height:1.7;
+  opacity:.85;
+  white-space:pre-line;
+}
 
 .album-divider{
   display:flex;
