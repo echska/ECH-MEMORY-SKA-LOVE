@@ -415,12 +415,31 @@ main{flex:1}
   line-height:1.5;
   text-align:center;
 }
-.album-caption{
-  font-style:italic;
-  font-size:.82rem;
-  padding:12px 14px;
-  opacity:.8;
+.album-caption-block{
+  padding:14px 16px;
   border-top:1px solid rgba(232,180,188,.12);
+  text-align:center;
+  direction:rtl;
+}
+.album-caption-title{
+  display:block;
+  font-size:.9rem;
+  font-weight:600;
+  color:var(--pink);
+  margin-bottom:6px;
+  letter-spacing:.02em;
+}
+.album-caption-text{
+  font-size:.82rem;
+  color:var(--text-dim);
+  line-height:1.6;
+  opacity:.85;
+}
+.photos-header-sub{
+  direction:rtl;
+  font-size:.92rem;
+  color:var(--text-dim);
+  line-height:1.6;
 }
 .photo-card-featured{
   grid-column:1/-1;
@@ -435,7 +454,7 @@ main{flex:1}
 .featured-quote{
   font-family:'Playfair Display',serif;
   font-size:1.05rem;
-  color:var(--accent);
+  color:var(--pink);
   line-height:1.7;
   margin-bottom:10px;
   font-style:italic;
@@ -622,14 +641,14 @@ main{flex:1}
 .farewell-title{
   font-family:'Playfair Display',serif;
   font-size:1.5rem;
-  color:var(--accent);
+  color:var(--pink);
   margin-bottom:8px;
   letter-spacing:.04em;
 }
 .farewell-divider{
   width:60px;
   height:1px;
-  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  background:linear-gradient(90deg,transparent,var(--pink),transparent);
   margin:12px auto 24px;
 }
 .farewell-paragraph{

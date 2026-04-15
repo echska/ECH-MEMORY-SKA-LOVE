@@ -2,7 +2,7 @@ import { useState } from "react";
 import { type Translations, type Lang } from "@/i18n/translations";
 import Footer from "@/components/Footer";
 import { allPhotos } from "@/data/allPhotos";
-import { getPhotoCaption } from "@/data/photoCaptions";
+import { storyCaptions } from "@/data/storyCaptions";
 import usePageAudio from "@/hooks/usePageAudio";
 
 const BASE = import.meta.env.BASE_URL;
@@ -25,16 +25,20 @@ export default function Photos({ t, lang }: Props) {
     { src: `${BASE}images/photo6.jpg`, text: t.photo6_text },
   ];
 
-  const albumPhotos = allPhotos.map((name, i) => ({
-    src: `${BASE}images/all_photos/${name}`,
-    caption: getPhotoCaption(i, lang),
-  }));
+  const albumPhotos = allPhotos.map((name, i) => {
+    const story = i < storyCaptions.length ? storyCaptions[i] : null;
+    return {
+      src: `${BASE}images/all_photos/${name}`,
+      title: story?.title ?? null,
+      text: story?.text ?? "ذكرى صامتة… لكنها لا تُنسى.",
+    };
+  });
 
   return (
     <div className="page-content">
       <div className="page-header">
         <h1>{t.photos_title}</h1>
-        <p>{t.photos_text}</p>
+        <p className="photos-header-sub">كل صورة هنا تحمل نبضة، وكل نبضة تحمل أثرًا لا يهدأ.</p>
       </div>
 
       <div className="photo-grid">
@@ -82,7 +86,10 @@ export default function Photos({ t, lang }: Props) {
               onClick={() => setLightbox(p.src)}
               style={{ cursor: "pointer" }}
             />
-            <p className="photo-caption album-caption">{p.caption}</p>
+            <div className="album-caption-block">
+              {p.title && <span className="album-caption-title">{p.title}</span>}
+              <p className="album-caption-text">{p.text}</p>
+            </div>
           </div>
         ))}
       </div>
