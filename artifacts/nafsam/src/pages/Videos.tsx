@@ -1,15 +1,28 @@
+import { useRef, useState } from "react";
 import { type Translations } from "@/i18n/translations";
 import Footer from "@/components/Footer";
+import { videosData, type VideoItem } from "@/data/videosData";
 
 interface Props {
   t: Translations;
 }
 
+function buildSrc(file: string) {
+  return `${import.meta.env.BASE_URL}media/${encodeURIComponent(file)}`;
+}
+
 export default function Videos({ t }: Props) {
-  const videos = [
-    { title: t.video1_title, text: t.video1_text, src: `${import.meta.env.BASE_URL}media/video1.mp4` },
-    { title: t.video2_title, text: t.video2_text, src: null },
-  ];
+  const [active, setActive] = useState<VideoItem | null>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const playerSectionRef = useRef<HTMLDivElement | null>(null);
+
+  const openVideo = (item: VideoItem, index: number) => {
+    setActive(item);
+    setActiveIndex(index);
+    requestAnimationFrame(() => {
+      playerSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
 
   return (
     <div className="page-content">
@@ -18,21 +31,60 @@ export default function Videos({ t }: Props) {
         <p>{t.videos_text}</p>
       </div>
 
-      <div className="videos-list">
-        {videos.map((v, i) => (
-          <div key={i} className="video-card glass">
-            <h3>{v.title}</h3>
-            <p>{v.text}</p>
-            {v.src ? (
-              <video controls className="video-player">
-                <source src={v.src} type="video/mp4" />
-              </video>
-            ) : (
-              <div className="video-placeholder">
-                <span>🎬</span>
-              </div>
-            )}
+      {active && (
+        <section
+          ref={playerSectionRef}
+          className="player-section glass"
+        >
+          <video
+            key={active.file}
+            controls
+            autoPlay
+            playsInline
+            className="main-video"
+          >
+            <source src={buildSrc(active.file)} />
+          </video>
+          <div className="player-info">
+            <h3 className="player-title">
+              {t.video_memory_label} {(activeIndex ?? 0) + 1}
+            </h3>
+            <p className="player-date">{active.title}</p>
           </div>
+        </section>
+      )}
+
+      <div className="gallery-grid">
+        {videosData.map((item, index) => (
+          <article
+            key={item.file}
+            className="video-card glass"
+            onClick={() => openVideo(item, index)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openVideo(item, index);
+              }
+            }}
+          >
+            <div className="thumb-area">
+              <video
+                src={buildSrc(item.file)}
+                muted
+                preload="metadata"
+                playsInline
+              />
+              <div className="play-hint">▶</div>
+            </div>
+            <div className="info">
+              <div className="date">
+                {t.video_memory_label} {index + 1}
+              </div>
+              <h3>{item.title}</h3>
+            </div>
+          </article>
         ))}
       </div>
 

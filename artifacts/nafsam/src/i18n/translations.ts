@@ -101,6 +101,7 @@ export interface Translations {
   songs_footer: string;
   videos_title: string;
   videos_text: string;
+  video_memory_label: string;
   video1_title: string;
   video1_text: string;
   video2_title: string;
@@ -243,6 +244,7 @@ export const translations: Record<Lang, Translations> = {
     songs_footer: "Baz\u0131 \u015fark\u0131lar sadece kulakla de\u011fil, kalple de dinlenir.",
     videos_title: "Videolar",
     videos_text: "K\u0131sa sahneler, ama etkileri zamandan daha uzun.",
+    video_memory_label: "Hat\u0131ra",
     video1_title: "Video 1",
     video1_text: "Baz\u0131 anlar videoda biter ama kalpte bitmez.",
     video2_title: "Video 2",
@@ -383,6 +385,7 @@ export const translations: Record<Lang, Translations> = {
     songs_footer: "\u0628\u0639\u0636\u06cc \u0622\u0647\u0646\u06af\u200c\u0647\u0627 \u0641\u0642\u0637 \u0628\u0627 \u06af\u0648\u0634 \u0634\u0646\u06cc\u062f\u0647 \u0646\u0645\u06cc\u200c\u0634\u0648\u0646\u062f\u060c \u0628\u0627 \u062f\u0644 \u0647\u0645 \u0634\u0646\u06cc\u062f\u0647 \u0645\u06cc\u200c\u0634\u0648\u0646\u062f.",
     videos_title: "\u0648\u06cc\u062f\u06cc\u0648\u0647\u0627",
     videos_text: "\u0635\u062d\u0646\u0647\u200c\u0647\u0627\u06cc \u06a9\u0648\u062a\u0627\u0647\u060c \u0627\u0645\u0627 \u0627\u062b\u0631\u0634\u0627\u0646 \u0627\u0632 \u0632\u0645\u0627\u0646 \u0637\u0648\u0644\u0627\u0646\u06cc\u200c\u062a\u0631 \u0627\u0633\u062a.",
+    video_memory_label: "\u062e\u0627\u0637\u0631\u0647",
     video1_title: "\u0648\u06cc\u062f\u06cc\u0648 1",
     video1_text: "\u0628\u0639\u0636\u06cc \u0644\u062d\u0638\u0647\u200c\u0647\u0627 \u062f\u0631 \u0648\u06cc\u062f\u06cc\u0648 \u062a\u0645\u0627\u0645 \u0645\u06cc\u200c\u0634\u0648\u0646\u062f \u0627\u0645\u0627 \u062f\u0631 \u062f\u0644 \u0646\u0647.",
     video2_title: "\u0648\u06cc\u062f\u06cc\u0648 2",
@@ -523,6 +526,7 @@ export const translations: Record<Lang, Translations> = {
     songs_footer: "\u0628\u0639\u0636 \u0627\u0644\u0623\u063a\u0627\u0646\u064a \u0644\u0627 \u062a\u064f\u0633\u0645\u0639 \u0628\u0627\u0644\u0623\u0630\u0646 \u0641\u0642\u0637\u060c \u0628\u0644 \u0628\u0627\u0644\u0642\u0644\u0628 \u0623\u064a\u0636\u064b\u0627.",
     videos_title: "\u0627\u0644\u0641\u064a\u062f\u064a\u0648",
     videos_text: "\u0644\u0642\u0637\u0627\u062a \u0642\u0635\u064a\u0631\u0629\u060c \u0644\u0643\u0646 \u0623\u062b\u0631\u0647\u0627 \u0623\u0637\u0648\u0644 \u0645\u0646 \u0627\u0644\u0648\u0642\u062a \u0646\u0641\u0633\u0647.",
+    video_memory_label: "\u0630\u0643\u0631\u0649",
     video1_title: "\u0641\u064a\u062f\u064a\u0648 1",
     video1_text: "\u0628\u0639\u0636 \u0627\u0644\u0644\u062d\u0638\u0627\u062a \u062a\u0646\u062a\u0647\u064a \u062f\u0627\u062e\u0644 \u0627\u0644\u0641\u064a\u062f\u064a\u0648\u060c \u0644\u0643\u0646\u0647\u0627 \u0644\u0627 \u062a\u0646\u062a\u0647\u064a \u062f\u0627\u062e\u0644 \u0627\u0644\u0642\u0644\u0628.",
     video2_title: "\u0641\u064a\u062f\u064a\u0648 2",
@@ -639,6 +643,7 @@ export const translations: Record<Lang, Translations> = {
     songs_footer: "Some songs are not heard only with the ear, but with the heart too.",
     videos_title: "Videos",
     videos_text: "Short scenes, but their impact lasts longer than time itself.",
+    video_memory_label: "Memory",
     video1_title: "Video 1",
     video1_text: "Some moments end in the video, but they do not end in the heart.",
     video2_title: "Video 2",

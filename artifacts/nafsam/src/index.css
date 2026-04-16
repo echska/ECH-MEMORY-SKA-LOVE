@@ -582,6 +582,112 @@ main{flex:1}
   opacity:.3;
 }
 
+.gallery-grid{
+  max-width:1100px;
+  margin:0 auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:18px;
+}
+.gallery-grid .video-card{
+  padding:0;
+  cursor:pointer;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.gallery-grid .video-card:hover,
+.gallery-grid .video-card:focus-visible{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+  outline:none;
+}
+.gallery-grid .thumb-area{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/10;
+  background:#000;
+  overflow:hidden;
+}
+.gallery-grid .thumb-area video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.gallery-grid .play-hint{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.4rem;
+  color:#fff;
+  text-shadow:0 2px 14px rgba(0,0,0,.7);
+  background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.35) 100%);
+  opacity:.85;
+  pointer-events:none;
+  transition:opacity .2s ease;
+}
+.gallery-grid .video-card:hover .play-hint{ opacity:1; }
+.gallery-grid .info{
+  padding:12px 14px 16px;
+}
+.gallery-grid .info .date{
+  color:var(--pink);
+  font-size:.78rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.gallery-grid .info h3{
+  color:var(--text-dim);
+  font-size:.95rem;
+  margin:0;
+  font-weight:500;
+}
+
+.player-section{
+  max-width:900px;
+  margin:0 auto 28px;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.player-section .main-video{
+  width:100%;
+  border-radius:12px;
+  max-height:520px;
+  background:#000;
+}
+.player-section .player-info{
+  text-align:center;
+}
+.player-section .player-title{
+  color:var(--pink);
+  font-size:1.1rem;
+  margin:0 0 4px;
+}
+.player-section .player-date{
+  color:var(--text-dim);
+  font-size:.85rem;
+  margin:0;
+  opacity:.7;
+  word-break:break-all;
+}
+
+@media (max-width:520px){
+  .gallery-grid{
+    grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+    gap:12px;
+    padding:14px;
+  }
+  .gallery-grid .info h3{ font-size:.85rem; }
+}
+
 .writings-list{
   max-width:650px;
   margin:0 auto;
