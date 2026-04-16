@@ -2,8 +2,15 @@ modules = ["nodejs-24"]
 
 [deployment]
 router = "application"
-deploymentTarget = "autoscale"
-run = ["sh", "-c", "PORT=8080 NODE_ENV=production node --enable-source-maps artifacts/api-server/dist/index.mjs"]
+deploymentTarget = "gce"
+run = ["pnpm", "--filter", "@workspace/api-server", "run", "start"]
+
+[deployment.env]
+PORT = "8080"
+NODE_ENV = "production"
+
+[deployment.build]
+args = ["sh", "-c", "pnpm install && pnpm --filter @workspace/api-server run build"]
 
 [deployment.postBuild]
 args = ["pnpm", "store", "prune"]
