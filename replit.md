@@ -32,6 +32,13 @@ Personal memory archive site with dark glassmorphism aesthetics. Frontend-only R
   - `public/images/` - hero.png, photo1-3.png
   - `public/media/` - video1.mp4
 
+## Deployment
+- **Target**: Autoscale (default) — uses per-artifact configuration from `artifact.toml`
+- **Build**: Runs `pnpm install`, then builds both `@workspace/nafsam` and `@workspace/api-server`
+- **Nafsam**: Served as static files from `artifacts/nafsam/dist/public`
+- **API Server**: Runs via `node --enable-source-maps artifacts/api-server/dist/index.mjs`
+- **Health check**: `/api/healthz`
+
 ## Key Commands
 
 - `pnpm run typecheck` — full typecheck across all packages
