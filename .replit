@@ -22,7 +22,7 @@ deploymentTarget = "autoscale"
 
 [agent]
   stack = "PNPM_WORKSPACE"
-  expertMode = true
+expertMode = true
 
 [postMerge]
   path = "scripts/post-merge.sh"
