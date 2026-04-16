@@ -587,8 +587,9 @@ main{flex:1}
   margin:0 auto;
   padding:20px;
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  grid-template-columns:1fr;
   gap:18px;
+  max-width:720px;
 }
 .gallery-grid .video-card{
   padding:0;
