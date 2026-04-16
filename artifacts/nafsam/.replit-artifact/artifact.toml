@@ -19,6 +19,12 @@ run = "pnpm --filter @workspace/nafsam run dev"
 
 [services.production]
 build = ["pnpm", "--filter", "@workspace/nafsam", "run", "build"]
+publicDir = "artifacts/nafsam/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
 
 [services.env]
 PORT = "19579"
