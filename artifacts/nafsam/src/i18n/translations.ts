@@ -137,6 +137,8 @@ export interface Translations {
   riddle_asgoori: string;
   riddle_lucifer: string;
   riddle_echska: string;
+  photos_header_sub: string;
+  photos_fallback_caption: string;
 }
 
 export const translations: Record<Lang, Translations> = {
@@ -277,6 +279,8 @@ export const translations: Record<Lang, Translations> = {
     riddle_asgoori: "İçimden gelen ve senin sadece söz sandığın kelime",
     riddle_lucifer: "Kolay çözüm bulunca şaşırıp bana dediğin kelime",
     riddle_echska: "Ömür boyu kalmaları gereken şey",
+    photos_header_sub: "Buradaki her fotoğraf bir kalp atışı taşır ve her kalp atışı dinmeyen bir iz taşır.",
+    photos_fallback_caption: "Sessiz bir anı… ama unutulmaz.",
   },
   fa: {
     dir: "rtl",
@@ -415,6 +419,8 @@ export const translations: Record<Lang, Translations> = {
     riddle_asgoori: "\u06a9\u0644\u0645\u0647\u200c\u0627\u06cc \u06a9\u0647 \u0627\u0632 \u0627\u0639\u0645\u0627\u0642\u0645 \u0628\u06cc\u0631\u0648\u0646 \u0645\u06cc\u200c\u0622\u0645\u062f \u0648 \u062a\u0648 \u0641\u06a9\u0631 \u0645\u06cc\u200c\u06a9\u0631\u062f\u06cc \u0641\u0642\u0637 \u062d\u0631\u0641 \u0627\u0633\u062a",
     riddle_lucifer: "\u0648\u0642\u062a\u06cc \u0631\u0627\u0647\u200c\u062d\u0644 \u0631\u0627 \u0631\u0627\u062d\u062a \u067e\u06cc\u062f\u0627 \u0645\u06cc\u200c\u06a9\u0631\u062f\u0645\u060c \u0628\u0627 \u062a\u0639\u062c\u0628 \u0627\u06cc\u0646 \u0631\u0627 \u0645\u06cc\u200c\u06af\u0641\u062a\u06cc",
     riddle_echska: "\u0686\u06cc\u0632\u06cc \u06a9\u0647 \u0642\u0631\u0627\u0631 \u0628\u0648\u062f \u062a\u0627 \u0622\u062e\u0631 \u0639\u0645\u0631 \u0628\u0645\u0627\u0646\u062f",
+    photos_header_sub: "\u0647\u0631 \u0639\u06a9\u0633\u06cc \u0627\u06cc\u0646\u062c\u0627 \u06cc\u06a9 \u0636\u0631\u0628\u0627\u0646 \u062f\u0627\u0631\u062f \u0648 \u0647\u0631 \u0636\u0631\u0628\u0627\u0646 \u0627\u062b\u0631\u06cc \u062f\u0627\u0631\u062f \u06a9\u0647 \u0622\u0631\u0627\u0645 \u0646\u0645\u06cc\u200c\u06af\u06cc\u0631\u062f.",
+    photos_fallback_caption: "\u062e\u0627\u0637\u0631\u0647\u200c\u0627\u06cc \u0633\u0627\u06a9\u062a\u2026 \u0627\u0645\u0627 \u0641\u0631\u0627\u0645\u0648\u0634\u200c\u0646\u0634\u062f\u0646\u06cc.",
   },
   ar: {
     dir: "rtl",
@@ -553,6 +559,8 @@ export const translations: Record<Lang, Translations> = {
     riddle_asgoori: "\u0627\u0644\u0643\u0644\u0645\u0629 \u064a\u0644\u064a \u062f\u0627\u064a\u0645\u0627 \u064a\u0637\u0644\u0639 \u0645\u0646 \u0627\u0639\u0645\u0627\u0642\u064a \u0648\u064a\u0644\u064a \u0645\u0627\u0643\u0646\u062a\u064a \u062a\u0635\u062f\u0642\u064a\u0646\u0647\u0627 \u0641\u0643\u0631\u0643 \u0645\u062c\u0631\u062f \u0643\u0644\u0627\u0645",
     riddle_lucifer: "\u0639\u0646\u062f\u0645\u0627 \u0644\u0627\u0642\u064a \u062d\u0644\u0648\u0644 \u0628\u0633\u0647\u0648\u0644\u0629 \u062a\u0646\u0635\u062f\u0645\u064a\u0646 \u0648 \u062a\u0642\u0648\u0644\u064a \u0647\u0644 \u0643\u0644\u0645\u0629",
     riddle_echska: "\u064a\u0644\u064a \u0643\u0627\u0646 \u0645\u0641\u0631\u0648\u0636 \u064a\u0638\u0644\u0648\u0646 \u0637\u0648\u0644 \u0627\u0644\u0639\u0645\u0631",
+    photos_header_sub: "\u0643\u0644 \u0635\u0648\u0631\u0629 \u0647\u0646\u0627 \u062a\u062d\u0645\u0644 \u0646\u0628\u0636\u0629\u060c \u0648\u0643\u0644 \u0646\u0628\u0636\u0629 \u062a\u062d\u0645\u0644 \u0623\u062b\u0631\u064b\u0627 \u0644\u0627 \u064a\u0647\u062f\u0623.",
+    photos_fallback_caption: "\u0630\u0643\u0631\u0649 \u0635\u0627\u0645\u062a\u0629\u2026 \u0644\u0643\u0646\u0647\u0627 \u0644\u0627 \u062a\u064f\u0646\u0633\u0649.",
   },
   en: {
     dir: "ltr",
@@ -667,5 +675,7 @@ export const translations: Record<Lang, Translations> = {
     riddle_asgoori: "The word that came from my deepest self and you thought was just talk",
     riddle_lucifer: "When I found solutions easily, you would be shocked and say this word",
     riddle_echska: "What was supposed to remain forever",
+    photos_header_sub: "Every photo here carries a heartbeat, and every heartbeat carries a trace that never fades.",
+    photos_fallback_caption: "A silent memory\u2026 but unforgettable.",
   },
 };

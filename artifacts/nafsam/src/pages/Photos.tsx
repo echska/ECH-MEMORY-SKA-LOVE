@@ -2,7 +2,7 @@ import { useState } from "react";
 import { type Translations, type Lang } from "@/i18n/translations";
 import Footer from "@/components/Footer";
 import { allPhotos } from "@/data/allPhotos";
-import { storyCaptions } from "@/data/storyCaptions";
+import { getStoryCaptions } from "@/data/storyCaptions";
 import usePageAudio from "@/hooks/usePageAudio";
 
 const BASE = import.meta.env.BASE_URL;
@@ -25,12 +25,13 @@ export default function Photos({ t, lang }: Props) {
     { src: `${BASE}images/photo6.jpg`, text: t.photo6_text },
   ];
 
+  const captions = getStoryCaptions(lang);
   const albumPhotos = allPhotos.map((name, i) => {
-    const story = i < storyCaptions.length ? storyCaptions[i] : null;
+    const story = i < captions.length ? captions[i] : null;
     return {
       src: `${BASE}images/all_photos/${name}`,
       title: story?.title ?? null,
-      text: story?.text ?? "ذكرى صامتة… لكنها لا تُنسى.",
+      text: story?.text ?? t.photos_fallback_caption,
     };
   });
 
@@ -38,7 +39,7 @@ export default function Photos({ t, lang }: Props) {
     <div className="page-content">
       <div className="page-header">
         <h1>{t.photos_title}</h1>
-        <p className="photos-header-sub">كل صورة هنا تحمل نبضة، وكل نبضة تحمل أثرًا لا يهدأ.</p>
+        <p className="photos-header-sub">{t.photos_header_sub}</p>
       </div>
 
       <div className="photo-grid">
