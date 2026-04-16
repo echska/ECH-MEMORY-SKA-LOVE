@@ -36,6 +36,30 @@ export interface Translations {
   stats_reset: string;
   stats_reset_confirm: string;
   stats_footer: string;
+  nav_stats: string;
+  stats_title: string;
+  stats_text: string;
+  stats_total_time: string;
+  stats_session_count: string;
+  stats_first_open: string;
+  stats_last_open: string;
+  stats_total_plays: string;
+  stats_unique_videos: string;
+  stats_never_played: string;
+  stats_most_played: string;
+  stats_sessions_heading: string;
+  stats_videos_heading: string;
+  stats_session_open: string;
+  stats_session_close: string;
+  stats_session_duration: string;
+  stats_session_active: string;
+  stats_play_count: string;
+  stats_last_played: string;
+  stats_never: string;
+  stats_no_data: string;
+  stats_reset: string;
+  stats_reset_confirm: string;
+  stats_footer: string;
   login_title: string;
   login_text: string;
   login_input: string;
@@ -344,6 +368,30 @@ export const translations: Record<Lang, Translations> = {
     nav_songs: "\u0622\u0647\u0646\u06af\u200c\u0647\u0627\u06cc \u0634\u0628",
     nav_videos: "\u0648\u06cc\u062f\u06cc\u0648\u0647\u0627",
     nav_writings: "\u062e\u0641\u06af\u06cc",
+    nav_stats: "\u0622\u0645\u0627\u0631",
+    stats_title: "\u0622\u0645\u0627\u0631",
+    stats_text: "\u0628\u0628\u06cc\u0646 \u0686\u0642\u062f\u0631 \u0628\u0647 \u0627\u06cc\u0646 \u062c\u0627 \u0622\u0645\u062f\u06cc \u0648 \u06a9\u062f\u0627\u0645 \u062e\u0627\u0637\u0631\u0647\u200c\u0647\u0627 \u0631\u0627 \u062f\u06cc\u062f\u06cc.",
+    stats_total_time: "\u0645\u062c\u0645\u0648\u0639 \u0632\u0645\u0627\u0646",
+    stats_session_count: "\u062a\u0639\u062f\u0627\u062f \u0628\u0627\u0632\u062f\u06cc\u062f",
+    stats_first_open: "\u0627\u0648\u0644\u06cc\u0646 \u0628\u0627\u0632\u200c\u0634\u062f\u0646",
+    stats_last_open: "\u0622\u062e\u0631\u06cc\u0646 \u0628\u0627\u0632\u200c\u0634\u062f\u0646",
+    stats_total_plays: "\u062c\u0645\u0639 \u067e\u062e\u0634\u200c\u0647\u0627",
+    stats_unique_videos: "\u062a\u0639\u062f\u0627\u062f \u0648\u06cc\u062f\u06cc\u0648\u0647\u0627\u06cc \u062f\u06cc\u062f\u0647\u200c\u0634\u062f\u0647",
+    stats_never_played: "\u062f\u06cc\u062f\u0647 \u0646\u0634\u062f\u0647",
+    stats_most_played: "\u067e\u0631\u200c\u062a\u06a9\u0631\u0627\u0631\u062a\u0631\u06cc\u0646",
+    stats_sessions_heading: "\u0628\u0627\u0632\u062f\u06cc\u062f\u0647\u0627",
+    stats_videos_heading: "\u0648\u06cc\u062f\u06cc\u0648\u0647\u0627",
+    stats_session_open: "\u0628\u0627\u0632\u200c\u0634\u062f\u0646",
+    stats_session_close: "\u0628\u0633\u062a\u0647 \u0634\u062f\u0646",
+    stats_session_duration: "\u0645\u062f\u062a",
+    stats_session_active: "\u0628\u0627\u0632",
+    stats_play_count: "\u062f\u0641\u0639\u0647",
+    stats_last_played: "\u0622\u062e\u0631\u06cc\u0646 \u067e\u062e\u0634",
+    stats_never: "\u0647\u0631\u06af\u0632",
+    stats_no_data: "\u0647\u0646\u0648\u0632 \u062f\u0627\u062f\u0647\u200c\u0627\u06cc \u0646\u06cc\u0633\u062a.",
+    stats_reset: "\u067e\u0627\u06a9 \u06a9\u0631\u062f\u0646",
+    stats_reset_confirm: "\u0647\u0645\u0647\u200c\u06cc \u0622\u0645\u0627\u0631 \u067e\u0627\u06a9 \u0634\u0648\u062f\u061f",
+    stats_footer: "\u0627\u06cc\u0646 \u0639\u062f\u062f\u0647\u0627 \u0641\u0642\u0637 \u0639\u062f\u062f \u0646\u06cc\u0633\u062a\u0646\u062f\u061b \u062f\u0631 \u0647\u0631 \u06a9\u062f\u0627\u0645 \u06cc\u06a9 \u0646\u06af\u0627\u0647 \u067e\u0646\u0647\u0627\u0646 \u0627\u0633\u062a.",
     login_title: "\u0646\u0641\u0633\u0645",
     login_text: "\u0627\u06cc\u0646 \u062c\u0627 \u062a\u0627 \u06a9\u0627\u0645\u0644 \u0634\u062f\u0646 \u0634\u0645\u0627\u0631\u0634 \u0628\u0633\u062a\u0647 \u0645\u06cc\u200c\u0645\u0627\u0646\u062f. \u0647\u0631 \u0627\u0633\u0645 \u0645\u0646\u062a\u0638\u0631 \u0648\u0642\u062a \u062e\u0648\u062f\u0634 \u0627\u0633\u062a. \u0628\u0639\u062f \u0627\u0632 \u067e\u0627\u06cc\u0627\u0646\u060c \u062f\u06cc\u06af\u0631 \u0634\u0645\u0627\u0631\u0634\u06cc \u0646\u0645\u06cc\u200c\u0645\u0627\u0646\u062f... \u0641\u0642\u0637 \u06a9\u0644\u0645\u0627\u062a \u0645\u06cc\u200c\u0645\u0627\u0646\u0646\u062f.",
     login_input: "\u062c\u0648\u0627\u0628 \u0631\u0627 \u0628\u0646\u0648\u06cc\u0633",
