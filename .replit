@@ -3,7 +3,7 @@ modules = ["nodejs-24"]
   [deployment]
   router = "application"
   deploymentTarget = "autoscale"
-  run = ["pnpm", "--filter", "@workspace/api-server", "run", "start"]
+  run = ["pnpm", "start"]
 
   [deployment.env]
   PORT = "8080"
@@ -21,7 +21,7 @@ modules = ["nodejs-24"]
 
   [agent]
   stack = "PNPM_WORKSPACE"
-  expertMode = true
+expertMode = true
 
   [postMerge]
   path = "scripts/post-merge.sh"
