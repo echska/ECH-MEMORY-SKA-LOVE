@@ -21,7 +21,7 @@ modules = ["nodejs-24"]
 
   [agent]
   stack = "PNPM_WORKSPACE"
-expertMode = true
+  expertMode = true
 
   [postMerge]
   path = "scripts/post-merge.sh"
@@ -48,6 +48,14 @@ expertMode = true
   externalPort = 6000
 
   [[ports]]
+  localPort = 8085
+  externalPort = 8000
+
+  [[ports]]
+  localPort = 8086
+  externalPort = 3003
+
+  [[ports]]
   localPort = 19579
   externalPort = 3000
 
@@ -62,4 +70,12 @@ expertMode = true
   [[ports]]
   localPort = 19582
   externalPort = 6800
+
+  [[ports]]
+  localPort = 19583
+  externalPort = 8008
+
+  [[ports]]
+  localPort = 19584
+  externalPort = 3002
   
