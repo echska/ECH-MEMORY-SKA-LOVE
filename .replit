@@ -2,6 +2,7 @@ modules = ["nodejs-24"]
 
   [deployment]
   router = "application"
+run = ["sh", "-c", "pnpm --filter @workspace/api-server run start"]
 
   [deployment.build]
   args = ["sh", "-c", "pnpm install && pnpm --filter @workspace/nafsam run build && pnpm --filter @workspace/api-server run build"]
@@ -15,7 +16,7 @@ modules = ["nodejs-24"]
 
   [agent]
   stack = "PNPM_WORKSPACE"
-  expertMode = true
+expertMode = true
 
   [postMerge]
   path = "scripts/post-merge.sh"
