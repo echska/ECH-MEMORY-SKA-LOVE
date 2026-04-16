@@ -1,7 +1,10 @@
 import app from "./app";
 import { logger } from "./lib/logger";
 
-const port = Number(process.env["PORT"] || 8080);
+if (!process.env["PORT"]) {
+  throw new Error("PORT environment variable is not set");
+}
+const port = Number(process.env["PORT"]);
 
 if (Number.isNaN(port) || port <= 0) {
   throw new Error(`Invalid PORT value: "${process.env["PORT"]}"`);
