@@ -1,6 +1,12 @@
 const STORAGE_KEY = "nafsam_analytics_v1";
 const HEARTBEAT_MS = 15_000;
 const STALE_THRESHOLD_MS = 60_000;
+const ALLOWED_HOST = "ech-nafas-ska-1.replit.app";
+
+function isRecordingAllowed(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.location.hostname === ALLOWED_HOST;
+}
 
 export interface SessionRecord {
   id: string;
@@ -92,6 +98,7 @@ function bindLifecycleListeners() {
 }
 
 export function startSession() {
+  if (!isRecordingAllowed()) return;
   const data = load();
   const now = Date.now();
 
@@ -124,6 +131,7 @@ export function startSession() {
 }
 
 export function heartbeat() {
+  if (!isRecordingAllowed()) return;
   if (!activeSessionId) return;
   const data = load();
   const s = data.sessions.find((x) => x.id === activeSessionId);
@@ -156,6 +164,7 @@ export function endSession() {
 }
 
 export function recordVideoPlay(file: string) {
+  if (!isRecordingAllowed()) return;
   const data = load();
   const now = Date.now();
   const existing = data.videoPlays[file] ?? {
@@ -170,6 +179,7 @@ export function recordVideoPlay(file: string) {
 }
 
 export function recordVideoWatch(file: string, addedMs: number) {
+  if (!isRecordingAllowed()) return;
   if (addedMs <= 0) return;
   const data = load();
   const existing = data.videoPlays[file] ?? {
