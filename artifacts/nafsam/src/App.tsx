@@ -11,6 +11,8 @@ import Photos from "@/pages/Photos";
 import Songs from "@/pages/Songs";
 import Videos from "@/pages/Videos";
 import Writings from "@/pages/Writings";
+import Stats from "@/pages/Stats";
+import { startSession, endSession } from "@/lib/analytics";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const authed = localStorage.getItem("nafsam_auth") === "1";
@@ -31,6 +33,12 @@ function AppContent() {
     check();
     return () => window.removeEventListener("storage", check);
   }, [location]);
+
+  useEffect(() => {
+    if (!authed) return;
+    startSession();
+    return () => endSession();
+  }, [authed]);
 
   return (
     <div className="app-shell">
@@ -59,6 +67,9 @@ function AppContent() {
           </Route>
           <Route path="/writings">
             <ProtectedRoute><Writings t={t} /></ProtectedRoute>
+          </Route>
+          <Route path="/stats">
+            <ProtectedRoute><Stats t={t} /></ProtectedRoute>
           </Route>
           <Route>
             <Redirect to="/" />

@@ -12,6 +12,30 @@ export interface Translations {
   nav_songs: string;
   nav_videos: string;
   nav_writings: string;
+  nav_stats: string;
+  stats_title: string;
+  stats_text: string;
+  stats_total_time: string;
+  stats_session_count: string;
+  stats_first_open: string;
+  stats_last_open: string;
+  stats_total_plays: string;
+  stats_unique_videos: string;
+  stats_never_played: string;
+  stats_most_played: string;
+  stats_sessions_heading: string;
+  stats_videos_heading: string;
+  stats_session_open: string;
+  stats_session_close: string;
+  stats_session_duration: string;
+  stats_session_active: string;
+  stats_play_count: string;
+  stats_last_played: string;
+  stats_never: string;
+  stats_no_data: string;
+  stats_reset: string;
+  stats_reset_confirm: string;
+  stats_footer: string;
   login_title: string;
   login_text: string;
   login_input: string;
@@ -155,6 +179,30 @@ export const translations: Record<Lang, Translations> = {
     nav_songs: "Gece \u015eark\u0131lar\u0131",
     nav_videos: "Videolar",
     nav_writings: "Bo\u011fulma",
+    nav_stats: "\u0130statistik",
+    stats_title: "\u0130statistikler",
+    stats_text: "Bu yere ne kadar geldi\u011fini, hangi an\u0131lar\u0131 izledi\u011fini g\u00f6rebilirsin.",
+    stats_total_time: "Toplam s\u00fcre",
+    stats_session_count: "Oturum say\u0131s\u0131",
+    stats_first_open: "\u0130lk a\u00e7\u0131l\u0131\u015f",
+    stats_last_open: "Son a\u00e7\u0131l\u0131\u015f",
+    stats_total_plays: "Toplam izleme",
+    stats_unique_videos: "\u0130zlenen video say\u0131s\u0131",
+    stats_never_played: "Hi\u00e7 izlenmeyen",
+    stats_most_played: "En \u00e7ok izlenen",
+    stats_sessions_heading: "Oturumlar",
+    stats_videos_heading: "Videolar",
+    stats_session_open: "A\u00e7\u0131l\u0131\u015f",
+    stats_session_close: "Kapan\u0131\u015f",
+    stats_session_duration: "S\u00fcre",
+    stats_session_active: "A\u00e7\u0131k",
+    stats_play_count: "\u0130zleme",
+    stats_last_played: "Son izleme",
+    stats_never: "Hi\u00e7",
+    stats_no_data: "Hen\u00fcz veri yok.",
+    stats_reset: "S\u0131f\u0131rla",
+    stats_reset_confirm: "T\u00fcm istatistikler silinsin mi?",
+    stats_footer: "Bu say\u0131lar sadece say\u0131 de\u011fil; her birinde bir bak\u0131\u015f gizli.",
     login_title: "Nafsam",
     login_text: "Bu yer geri say\u0131m tamamlanana kadar kapal\u0131 kal\u0131r. Her isim kendi vaktini bekler. Sonunda art\u0131k saya\u00e7 kalmaz... sadece s\u00f6zler kal\u0131r.",
     login_input: "Cevab\u0131 yaz",

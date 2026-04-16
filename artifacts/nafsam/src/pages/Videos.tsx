@@ -2,6 +2,7 @@ import { useState } from "react";
 import { type Translations } from "@/i18n/translations";
 import Footer from "@/components/Footer";
 import { videosData, type VideoItem } from "@/data/videosData";
+import { recordVideoPlay } from "@/lib/analytics";
 
 interface Props {
   t: Translations;
@@ -16,6 +17,8 @@ export default function Videos({ t }: Props) {
 
   const playVideo = (index: number) => {
     setActiveIndex(index);
+    const item = videosData[index];
+    if (item) recordVideoPlay(item.file);
   };
 
   return (
