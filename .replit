@@ -29,54 +29,62 @@ deploymentTarget = "autoscale"
   timeoutMs = 20000
 
 [[ports]]
-  localPort = 8080
-  externalPort = 8080
+localPort = 8080
+externalPort = 8080
 
 [[ports]]
-  localPort = 8081
-  externalPort = 80
+localPort = 8081
+externalPort = 80
 
 [[ports]]
-  localPort = 8082
-  externalPort = 3001
+localPort = 8082
+externalPort = 3001
 
 [[ports]]
-  localPort = 8083
-  externalPort = 5173
+localPort = 8083
+externalPort = 5173
 
 [[ports]]
-  localPort = 8084
-  externalPort = 6000
+localPort = 8084
+externalPort = 6000
 
 [[ports]]
-  localPort = 8085
-  externalPort = 8000
+localPort = 8085
+externalPort = 8000
 
 [[ports]]
-  localPort = 8086
-  externalPort = 3003
+localPort = 8086
+externalPort = 3003
 
 [[ports]]
-  localPort = 19579
-  externalPort = 3000
+localPort = 8087
+externalPort = 8099
 
 [[ports]]
-  localPort = 19580
-  externalPort = 4200
+localPort = 19579
+externalPort = 3000
 
 [[ports]]
-  localPort = 19581
-  externalPort = 5000
+localPort = 19580
+externalPort = 4200
 
 [[ports]]
-  localPort = 19582
-  externalPort = 6800
+localPort = 19581
+externalPort = 5000
 
 [[ports]]
-  localPort = 19583
-  externalPort = 8008
+localPort = 19582
+externalPort = 6800
 
 [[ports]]
-  localPort = 19584
-  externalPort = 3002
+localPort = 19583
+externalPort = 8008
+
+[[ports]]
+localPort = 19584
+externalPort = 3002
+
+[[ports]]
+localPort = 19585
+externalPort = 8081
   
