@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { type Translations } from "@/i18n/translations";
 import usePageAudio from "@/hooks/usePageAudio";
+import { safeGet, safeSet } from "@/lib/safeStorage";
 
 const PASSWORDS = ["ashkim", "nafasm", "kaar", "asgoori", "lucifer", "ech&ska", "kchm", "nafas", "ech"];
 
@@ -62,7 +63,7 @@ export default function Login({ t, onAuth }: Props) {
   const isOpen = countdown === null;
 
   useEffect(() => {
-    if (localStorage.getItem("nafsam_auth") === "1") {
+    if (safeGet("nafsam_auth") === "1") {
       setLocation("/home");
     }
   }, [setLocation]);
@@ -93,7 +94,7 @@ export default function Login({ t, onAuth }: Props) {
     if (PASSWORDS.includes(answer.trim().toLowerCase())) {
       setMsg(t.login_msg_success);
       setMsgType("success");
-      localStorage.setItem("nafsam_auth", "1");
+      safeSet("nafsam_auth", "1");
       onAuth?.();
       setTimeout(() => setLocation("/home"), 800);
     } else {
