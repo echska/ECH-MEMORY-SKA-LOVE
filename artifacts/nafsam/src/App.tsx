@@ -13,9 +13,10 @@ import Videos from "@/pages/Videos";
 import Writings from "@/pages/Writings";
 import Stats from "@/pages/Stats";
 import { startSession, endSession } from "@/lib/analytics";
+import { safeGet } from "@/lib/safeStorage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const authed = localStorage.getItem("nafsam_auth") === "1";
+  const authed = safeGet("nafsam_auth") === "1";
   if (!authed) return <Redirect to="/" />;
   return <>{children}</>;
 }
@@ -23,12 +24,12 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 function AppContent() {
   const { lang, setLang, t } = useLang();
   const [authed, setAuthed] = useState(
-    () => localStorage.getItem("nafsam_auth") === "1"
+    () => safeGet("nafsam_auth") === "1"
   );
   const [location] = useLocation();
 
   useEffect(() => {
-    const check = () => setAuthed(localStorage.getItem("nafsam_auth") === "1");
+    const check = () => setAuthed(safeGet("nafsam_auth") === "1");
     window.addEventListener("storage", check);
     check();
     return () => window.removeEventListener("storage", check);
