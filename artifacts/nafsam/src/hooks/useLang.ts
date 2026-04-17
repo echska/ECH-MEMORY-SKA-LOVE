@@ -3,13 +3,21 @@ import { type Lang, translations } from "@/i18n/translations";
 
 export function useLang() {
   const [lang, setLangState] = useState<Lang>(() => {
-    const stored = localStorage.getItem("site_lang");
-    if (stored === "tr" || stored === "fa" || stored === "ar" || stored === "en") return stored;
+    try {
+      const stored = localStorage.getItem("site_lang");
+      if (stored === "tr" || stored === "fa" || stored === "ar" || stored === "en") return stored;
+    } catch {
+      /* storage blocked */
+    }
     return "tr";
   });
 
   const setLang = useCallback((l: Lang) => {
-    localStorage.setItem("site_lang", l);
+    try {
+      localStorage.setItem("site_lang", l);
+    } catch {
+      /* storage blocked */
+    }
     setLangState(l);
   }, []);
 
