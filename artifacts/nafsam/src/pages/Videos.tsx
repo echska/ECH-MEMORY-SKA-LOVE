@@ -90,10 +90,11 @@ export default function Videos({ t }: Props) {
           >
             <div className="v-thumb">
               <video
-                src={buildSrc(item.file)}
+                src={`${buildSrc(item.file)}#t=0.5`}
                 muted
                 preload="metadata"
                 playsInline
+                disablePictureInPicture
               />
               <div className="v-play">▶</div>
             </div>
