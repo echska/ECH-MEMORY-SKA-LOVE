@@ -56,20 +56,16 @@ export default function Videos({ t }: Props) {
 
   return (
     <div className="videos-page">
-      <section className="v-hero">
-        <h1 className="v-hero-title">{t.videos_title}</h1>
-        <p className="v-hero-sub">{t.videos_text}</p>
+      <section className="v-hero" dir="rtl">
+        <h1 className="v-hero-title">الذكريات التي ما زالت تتنفس</h1>
+        <p className="v-hero-sub">كل مشهد يعيدني إليكِ، ثم يتركني وحدي من جديد</p>
         <div className="v-hero-line" />
       </section>
 
-      <section className="v-stats">
+      <section className="v-stats" dir="rtl">
         <div className="v-stat">
-          <div className="v-stat-label">{t.video_memory_label}</div>
+          <div className="v-stat-label">ذكرى</div>
           <div className="v-stat-value">{videosData.length}</div>
-        </div>
-        <div className="v-stat">
-          <div className="v-stat-label">{t.brand}</div>
-          <div className="v-stat-value">{t.videos_footer}</div>
         </div>
       </section>
 
