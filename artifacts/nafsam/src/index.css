@@ -22,11 +22,7 @@
 
 html,body{
   font-family:var(--sans);
-  background:
-    radial-gradient(circle at top right, rgba(166,124,82,.10), transparent 22%),
-    radial-gradient(circle at top left, rgba(90,90,120,.06), transparent 25%),
-    linear-gradient(180deg, #090909 0%, #050505 100%);
-  background-attachment:fixed;
+  background:#030303;
   color:var(--text);
   min-height:100vh;
   overflow-x:hidden;
