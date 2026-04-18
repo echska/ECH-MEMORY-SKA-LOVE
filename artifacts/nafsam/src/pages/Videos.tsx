@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { type Translations } from "@/i18n/translations";
 import { videosData } from "@/data/videosData";
 import { recordVideoPlay } from "@/lib/analytics";
@@ -11,45 +11,21 @@ function buildSrc(file: string) {
   return `${import.meta.env.BASE_URL}media/${encodeURIComponent(file)}`;
 }
 
-function LazyThumb({ file }: { file: string }) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = useState(false);
+function buildPoster(file: string) {
+  const base = file.replace(/\.[^/.]+$/, "");
+  return `${import.meta.env.BASE_URL}posters/${encodeURIComponent(base)}.jpg`;
+}
 
-  useEffect(() => {
-    if (visible) return;
-    const node = ref.current;
-    if (!node) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const obs = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            setVisible(true);
-            obs.disconnect();
-            break;
-          }
-        }
-      },
-      { rootMargin: "300px 0px" }
-    );
-    obs.observe(node);
-    return () => obs.disconnect();
-  }, [visible]);
-
+function Thumb({ file }: { file: string }) {
   return (
-    <div className="v-thumb" ref={ref}>
-      {visible && (
-        <video
-          src={`${buildSrc(file)}#t=0.5`}
-          muted
-          preload="metadata"
-          playsInline
-          disablePictureInPicture
-        />
-      )}
+    <div className="v-thumb">
+      <img
+        src={buildPoster(file)}
+        alt=""
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+      />
       <div className="v-play">▶</div>
     </div>
   );
@@ -128,7 +104,7 @@ export default function Videos({ t }: Props) {
               }
             }}
           >
-            <LazyThumb file={item.file} />
+            <Thumb file={item.file} />
             <div className="v-card-body">
               <div className="v-date">
                 {t.video_memory_label} {index + 1}
