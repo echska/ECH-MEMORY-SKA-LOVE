@@ -12,7 +12,6 @@ import Songs from "@/pages/Songs";
 import Videos from "@/pages/Videos";
 import Writings from "@/pages/Writings";
 import Stats from "@/pages/Stats";
-import Guestbook from "@/pages/Guestbook";
 import { startSession, endSession } from "@/lib/analytics";
 import { safeGet } from "@/lib/safeStorage";
 
@@ -72,9 +71,6 @@ function AppContent() {
           </Route>
           <Route path="/stats">
             <ProtectedRoute><Stats t={t} /></ProtectedRoute>
-          </Route>
-          <Route path="/guestbook">
-            <ProtectedRoute><Guestbook t={t} /></ProtectedRoute>
           </Route>
           <Route>
             <Redirect to="/" />

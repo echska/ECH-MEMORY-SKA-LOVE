@@ -13,23 +13,6 @@ export interface Translations {
   nav_videos: string;
   nav_writings: string;
   nav_stats: string;
-  nav_guestbook: string;
-  guestbook_title: string;
-  guestbook_text: string;
-  guestbook_name_label: string;
-  guestbook_name_placeholder: string;
-  guestbook_message_label: string;
-  guestbook_message_placeholder: string;
-  guestbook_disclaimer: string;
-  guestbook_send: string;
-  guestbook_sending: string;
-  guestbook_ok: string;
-  guestbook_err_empty: string;
-  guestbook_err_rate: string;
-  guestbook_err_generic: string;
-  guestbook_list_heading: string;
-  guestbook_empty: string;
-  stats_messages_count: string;
   stats_title: string;
   stats_text: string;
   stats_total_time: string;
@@ -197,23 +180,6 @@ export const translations: Record<Lang, Translations> = {
     nav_videos: "Videolar",
     nav_writings: "Bo\u011fulma",
     nav_stats: "\u0130statistik",
-    nav_guestbook: "Ziyaret\u00e7i Defteri",
-    guestbook_title: "Ziyaret\u00e7i Defteri",
-    guestbook_text: "Buraya bir iz b\u0131rak. Ad\u0131n ve mesaj\u0131n bana ula\u015facak.",
-    guestbook_name_label: "Ad\u0131n (iste\u011fe ba\u011fl\u0131)",
-    guestbook_name_placeholder: "Bir isim yaz\u2026",
-    guestbook_message_label: "Mesaj\u0131n",
-    guestbook_message_placeholder: "Birka\u00e7 kelime yaz\u2026",
-    guestbook_disclaimer: "Mesaj\u0131n bu sayfada herkese g\u00f6r\u00fcn\u00fcr ve site sahibine gider.",
-    guestbook_send: "G\u00f6nder",
-    guestbook_sending: "G\u00f6nderiliyor\u2026",
-    guestbook_ok: "Mesaj\u0131n kaydedildi. Te\u015fekk\u00fcrler.",
-    guestbook_err_empty: "L\u00fctfen bir mesaj yaz.",
-    guestbook_err_rate: "\u00c7ok h\u0131zl\u0131 g\u00f6nderdin, biraz bekle.",
-    guestbook_err_generic: "G\u00f6nderilemedi, tekrar dene.",
-    guestbook_list_heading: "Mesajlar",
-    guestbook_empty: "Hen\u00fcz mesaj yok.",
-    stats_messages_count: "Defterdeki mesajlar",
     stats_title: "\u0130statistikler",
     stats_text: "Bu yere ne kadar geldi\u011fini, hangi an\u0131lar\u0131 izledi\u011fini g\u00f6rebilirsin.",
     stats_total_time: "Toplam s\u00fcre",
