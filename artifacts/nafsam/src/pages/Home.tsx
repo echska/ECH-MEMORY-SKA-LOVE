@@ -46,7 +46,7 @@ export default function Home({ t }: Props) {
   return (
     <div className="page-content">
       <section className="hero">
-        <div className="hero-bg" style={{ backgroundImage: `url(${BASE}images/hero.png)` }} />
+        <div className="hero-bg" style={{ backgroundImage: `url(/api/private/images/hero.png)` }} />
         <div className="hero-overlay" />
         <div className="hero-body">
           <span className="eyebrow">{t.hero_eyebrow}</span>

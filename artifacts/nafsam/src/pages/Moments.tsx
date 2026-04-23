@@ -16,21 +16,21 @@ export default function Moments({ t }: Props) {
       title: t.moment1_title,
       text: t.moment1_text,
       memory: t.moment1_memory,
-      image: `${BASE}images/photo1.jpg`,
+      image: `/api/private/images/photo1.jpg`,
     },
     {
       time: t.moment2_time,
       title: t.moment2_title,
       text: t.moment2_text,
       memory: t.moment2_memory,
-      image: `${BASE}images/photo2.png`,
+      image: `/api/private/images/photo2.png`,
     },
     {
       time: t.moment3_time,
       title: t.moment3_title,
       text: t.moment3_text,
       memory: t.moment3_memory,
-      image: `${BASE}images/photo3.png`,
+      image: `/api/private/images/photo3.png`,
     },
   ];
 
