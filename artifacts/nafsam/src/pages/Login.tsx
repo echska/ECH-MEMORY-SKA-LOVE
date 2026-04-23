@@ -2,20 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 import { type Translations } from "@/i18n/translations";
 import usePageAudio from "@/hooks/usePageAudio";
-import { safeGet, safeSet } from "@/lib/safeStorage";
-
-const PASSWORDS = ["ashkim", "nafasm", "kaar", "asgoori", "lucifer", "ech&ska", "kchm", "nafas", "ech"];
-
-const START = new Date("2025-08-20T04:04:00");
-
-function getEndDate() {
-  const d = new Date(START);
-  d.setMonth(d.getMonth() + 7);
-  d.setDate(d.getDate() + 26);
-  return d;
-}
-
-const END = getEndDate();
+import { fetchSession, login } from "@/lib/auth";
 
 interface CountdownTime {
   days: number;
@@ -24,8 +11,8 @@ interface CountdownTime {
   secs: number;
 }
 
-function getCountdown(now: Date): CountdownTime | null {
-  const diff = END.getTime() - now.getTime();
+function getCountdown(target: number, now: Date): CountdownTime | null {
+  const diff = target - now.getTime();
   if (diff <= 0) return null;
   const d = Math.floor(diff / 1000);
   return {
@@ -52,28 +39,39 @@ interface Props {
 
 export default function Login({ t, onAuth }: Props) {
   usePageAudio("login_song.mp3");
-  const [countdown, setCountdown] = useState<CountdownTime | null>(
-    getCountdown(new Date())
-  );
+  const [openAt, setOpenAt] = useState<number | null>(null);
+  const [countdown, setCountdown] = useState<CountdownTime | null>(null);
   const [answer, setAnswer] = useState("");
   const [msg, setMsg] = useState("");
   const [msgType, setMsgType] = useState<"" | "error" | "success">("");
+  const [submitting, setSubmitting] = useState(false);
   const [, setLocation] = useLocation();
 
-  const isOpen = countdown === null;
-
   useEffect(() => {
-    if (safeGet("nafsam_auth") === "1") {
-      setLocation("/home");
-    }
+    let cancelled = false;
+    fetchSession().then((s) => {
+      if (cancelled) return;
+      if (s.authed) {
+        setLocation("/home");
+        return;
+      }
+      setOpenAt(s.openAt);
+      setCountdown(getCountdown(s.openAt, new Date()));
+    });
+    return () => {
+      cancelled = true;
+    };
   }, [setLocation]);
 
   useEffect(() => {
+    if (openAt === null) return;
     const iv = setInterval(() => {
-      setCountdown(getCountdown(new Date()));
+      setCountdown(getCountdown(openAt, new Date()));
     }, 1000);
     return () => clearInterval(iv);
-  }, []);
+  }, [openAt]);
+
+  const isOpen = countdown === null && openAt !== null;
 
   const riddleKeys: Record<string, keyof Translations> = {
     Ashkim: "riddle_ashkim",
@@ -84,23 +82,30 @@ export default function Login({ t, onAuth }: Props) {
     ECHSKA: "riddle_echska",
   };
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (submitting) return;
     if (!isOpen) {
       setMsg(t.login_msg_closed);
       setMsgType("error");
       return;
     }
-    if (PASSWORDS.includes(answer.trim().toLowerCase())) {
+    setSubmitting(true);
+    const result = await login(answer);
+    setSubmitting(false);
+    if (result.ok) {
       setMsg(t.login_msg_success);
       setMsgType("success");
-      safeSet("nafsam_auth", "1");
       onAuth?.();
       setTimeout(() => setLocation("/home"), 800);
+      return;
+    }
+    if (result.reason === "closed") {
+      setMsg(t.login_msg_closed);
     } else {
       setMsg(t.login_msg_wrong);
-      setMsgType("error");
     }
+    setMsgType("error");
   }
 
   return (
@@ -140,8 +145,9 @@ export default function Login({ t, onAuth }: Props) {
             value={answer}
             onChange={(e) => setAnswer(e.target.value)}
             className="login-input"
+            disabled={submitting}
           />
-          <button type="submit" className="btn btn-primary login-btn">
+          <button type="submit" className="btn btn-primary login-btn" disabled={submitting}>
             {t.login_button}
           </button>
         </form>

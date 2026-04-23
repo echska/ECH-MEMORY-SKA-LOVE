@@ -1,35 +1,57 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { type Translations, type Lang } from "@/i18n/translations";
 import Footer from "@/components/Footer";
 import { allPhotos } from "@/data/allPhotos";
-import { getStoryCaptions } from "@/data/storyCaptions";
 import usePageAudio from "@/hooks/usePageAudio";
-
-const BASE = import.meta.env.BASE_URL;
+import { privateImage } from "@/lib/privateAssets";
 
 interface Props {
   t: Translations;
   lang: Lang;
 }
 
+interface StoryCaption {
+  title: string;
+  text: string;
+}
+
+interface PrivateContent {
+  captions?: { ar?: StoryCaption[]; tr?: StoryCaption[] };
+}
+
 export default function Photos({ t, lang }: Props) {
   usePageAudio("song2.mp3");
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const [captions, setCaptions] = useState<StoryCaption[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/private/content", { credentials: "same-origin" })
+      .then((r) => (r.ok ? (r.json() as Promise<PrivateContent>) : null))
+      .then((data) => {
+        if (cancelled || !data) return;
+        const langKey: "ar" | "tr" = lang === "ar" ? "ar" : "tr";
+        setCaptions(data.captions?.[langKey] ?? []);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [lang]);
 
   const specialPhotos = [
-    { src: `${BASE}images/photo1.jpg`, text: t.photo1_text },
-    { src: `${BASE}images/photo2.png`, text: t.photo2_text },
-    { src: `${BASE}images/photo3.png`, text: t.photo3_text },
-    { src: `${BASE}images/photo4.jpg`, text: t.photo4_text },
-    { src: `${BASE}images/photo5.jpg`, text: t.photo5_text },
-    { src: `${BASE}images/photo6.jpg`, text: t.photo6_text },
+    { src: privateImage("photo1.jpg"), text: t.photo1_text },
+    { src: privateImage("photo2.png"), text: t.photo2_text },
+    { src: privateImage("photo3.png"), text: t.photo3_text },
+    { src: privateImage("photo4.jpg"), text: t.photo4_text },
+    { src: privateImage("photo5.jpg"), text: t.photo5_text },
+    { src: privateImage("photo6.jpg"), text: t.photo6_text },
   ];
 
-  const captions = getStoryCaptions(lang);
   const albumPhotos = allPhotos.map((name, i) => {
     const story = i < captions.length ? captions[i] : null;
     return {
-      src: `${BASE}images/all_photos/${name}`,
+      src: privateImage(`all_photos/${name}`),
       title: story?.title ?? null,
       text: story?.text ?? t.photos_fallback_caption,
     };
@@ -58,10 +80,10 @@ export default function Photos({ t, lang }: Props) {
 
         <div className="photo-card glass photo-card-featured">
           <img
-            src={`${BASE}images/photo7.jpg`}
+            src={privateImage("photo7.jpg")}
             alt=""
             className="photo-img"
-            onClick={() => setLightbox(`${BASE}images/photo7.jpg`)}
+            onClick={() => setLightbox(privateImage("photo7.jpg"))}
             style={{ cursor: "pointer" }}
           />
           <div className="photo-caption-featured">

@@ -13,64 +13,66 @@ import Videos from "@/pages/Videos";
 import Writings from "@/pages/Writings";
 import Stats from "@/pages/Stats";
 import { startSession, endSession } from "@/lib/analytics";
-import { safeGet } from "@/lib/safeStorage";
+import { fetchSession } from "@/lib/auth";
 
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const authed = safeGet("nafsam_auth") === "1";
-  if (!authed) return <Redirect to="/" />;
+type AuthState = "checking" | "authed" | "anon";
+
+function ProtectedRoute({ state, children }: { state: AuthState; children: React.ReactNode }) {
+  if (state === "checking") return null;
+  if (state !== "authed") return <Redirect to="/" />;
   return <>{children}</>;
 }
 
 function AppContent() {
   const { lang, setLang, t } = useLang();
-  const [authed, setAuthed] = useState(
-    () => safeGet("nafsam_auth") === "1"
-  );
+  const [authState, setAuthState] = useState<AuthState>("checking");
   const [location] = useLocation();
 
+  const refresh = async () => {
+    const s = await fetchSession();
+    setAuthState(s.authed ? "authed" : "anon");
+  };
+
   useEffect(() => {
-    const check = () => setAuthed(safeGet("nafsam_auth") === "1");
-    window.addEventListener("storage", check);
-    check();
-    return () => window.removeEventListener("storage", check);
+    refresh();
   }, [location]);
 
   useEffect(() => {
-    if (!authed) return;
+    if (authState !== "authed") return;
     startSession();
     return () => endSession();
-  }, [authed]);
+  }, [authState]);
 
   return (
     <div className="app-shell">
       <Rain />
-      {authed && <Navbar t={t} />}
+      {authState === "authed" && <Navbar t={t} />}
       <LanguageSwitcher lang={lang} setLang={setLang} mini />
       <main>
         <Switch>
           <Route path="/">
-            <Login t={t} onAuth={() => setAuthed(true)} />
+            <Login t={t} onAuth={() => setAuthState("authed")} />
           </Route>
           <Route path="/home">
-            <ProtectedRoute><Home t={t} /></ProtectedRoute>
+            <ProtectedRoute state={authState}><Home t={t} /></ProtectedRoute>
           </Route>
           <Route path="/moments">
-            <ProtectedRoute><Moments t={t} /></ProtectedRoute>
+            <ProtectedRoute state={authState}><Moments t={t} /></ProtectedRoute>
           </Route>
           <Route path="/photos">
-            <ProtectedRoute><Photos t={t} lang={lang} /></ProtectedRoute>
+            <ProtectedRoute state={authState}><Photos t={t} lang={lang} /></ProtectedRoute>
           </Route>
           <Route path="/songs">
-            <ProtectedRoute><Songs t={t} /></ProtectedRoute>
+            <ProtectedRoute state={authState}><Songs t={t} /></ProtectedRoute>
           </Route>
           <Route path="/videos">
-            <ProtectedRoute><Videos t={t} /></ProtectedRoute>
+            <ProtectedRoute state={authState}><Videos t={t} /></ProtectedRoute>
           </Route>
           <Route path="/writings">
-            <ProtectedRoute><Writings t={t} /></ProtectedRoute>
+            <ProtectedRoute state={authState}><Writings t={t} lang={lang} /></ProtectedRoute>
           </Route>
           <Route path="/stats">
-            <ProtectedRoute><Stats t={t} /></ProtectedRoute>
+            <ProtectedRoute state={authState}><Stats t={t} /></ProtectedRoute>
           </Route>
           <Route>
             <Redirect to="/" />

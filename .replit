@@ -91,4 +91,9 @@ externalPort = 3002
 [[ports]]
 localPort = 19585
 externalPort = 8081
+
+[userenv]
+
+[userenv.shared]
+NAFSAM_SESSION_SECRET = "71NV_o1Sf22v08G6s_dK8WiE7fnAPGst0q6a9LNRFw6YAfCtWnM5NPug4e7B8lak"
   

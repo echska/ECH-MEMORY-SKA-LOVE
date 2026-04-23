@@ -8,12 +8,12 @@ interface Props {
 }
 
 function buildSrc(file: string) {
-  return `${import.meta.env.BASE_URL}media/${encodeURIComponent(file)}`;
+  return `/api/private/media/${encodeURIComponent(file)}`;
 }
 
 function buildPoster(file: string) {
   const base = file.replace(/\.[^/.]+$/, "");
-  return `${import.meta.env.BASE_URL}posters/${encodeURIComponent(base)}.jpg`;
+  return `/api/private/posters/${encodeURIComponent(base)}.jpg`;
 }
 
 function Thumb({ file }: { file: string }) {
