@@ -6,7 +6,11 @@ export default function usePageAudio(songFile: string) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio(`${BASE}media/${songFile}`);
+    const src =
+      songFile === "login_song.mp3"
+        ? `${BASE}media/${songFile}`
+        : `/api/private/media/${encodeURIComponent(songFile)}`;
+    const audio = new Audio(src);
     audio.loop = true;
     audio.volume = 0.3;
     audioRef.current = audio;

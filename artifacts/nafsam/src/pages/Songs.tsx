@@ -6,12 +6,11 @@ interface Props {
 }
 
 export default function Songs({ t }: Props) {
-  const BASE = import.meta.env.BASE_URL;
   const songs = [
-    { title: "Be Koja Residi - Dorcci", text: t.song1_text, src: `${BASE}media/song1.mp3` },
-    { title: "Ghatle Amd - Dorcci", text: t.song2_text, src: `${BASE}media/song2.mp3` },
-    { title: t.song3_title, text: t.song3_text, src: `${BASE}media/song3.mp3` },
-    { title: t.song4_title, text: t.song4_text, src: `${BASE}media/song4.mp3` },
+    { title: "Be Koja Residi - Dorcci", text: t.song1_text, src: "/api/private/media/song1.mp3" },
+    { title: "Ghatle Amd - Dorcci", text: t.song2_text, src: "/api/private/media/song2.mp3" },
+    { title: t.song3_title, text: t.song3_text, src: "/api/private/media/song3.mp3" },
+    { title: t.song4_title, text: t.song4_text, src: "/api/private/media/song4.mp3" },
   ];
 
   return (
