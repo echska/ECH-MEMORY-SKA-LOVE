@@ -47,3 +47,21 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Nafsam private archive (large binaries — too big for GitHub)
+# content.json (writings/captions) IS committed; only media is excluded.
+artifacts/api-server/private/media/
+artifacts/api-server/private/images/
+artifacts/api-server/private/posters/
+artifacts/api-server/private/videos/
+
+# Large archive/upload files (too big for GitHub)
+*.zip
+*.tar
+*.tar.gz
+attached_assets/
+
+# Local env files (never commit secrets)
+.env
+.env.local
+*.env.local
