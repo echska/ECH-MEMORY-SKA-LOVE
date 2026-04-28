@@ -36,13 +36,18 @@ function verify(token: string | undefined): { valid: boolean; expiresAt?: number
   return { valid: true, expiresAt };
 }
 
-export function issueSession(res: Response): void {
+function isHttpsRequest(req: Request): boolean {
+  const forwardedProto = req.get("x-forwarded-proto");
+  return req.secure || forwardedProto?.split(",").some((proto) => proto.trim() === "https") === true;
+}
+
+export function issueSession(req: Request, res: Response): void {
   const expiresAt = Date.now() + SESSION_TTL_MS;
   const token = sign(String(expiresAt));
   res.cookie(COOKIE_NAME, token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: process.env.NODE_ENV === "production" && isHttpsRequest(req),
     maxAge: SESSION_TTL_MS,
     path: "/",
   });

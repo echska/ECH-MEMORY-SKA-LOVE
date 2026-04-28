@@ -76,7 +76,7 @@ router.post("/auth/login", (req, res) => {
     res.status(401).json({ error: "wrong_answer" });
     return;
   }
-  issueSession(res);
+  issueSession(req, res);
   res.json({ ok: true });
 });
 
