@@ -1,0 +1,16 @@
+{
+  "buildCommand": "pnpm --filter @workspace/nafsam run build",
+  "outputDirectory": "artifacts/nafsam/dist/public",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
