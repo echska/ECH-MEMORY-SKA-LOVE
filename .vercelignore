@@ -1,0 +1,15 @@
+node_modules
+.git
+.turbo
+
+zipFile.zip
+attached_assets
+
+artifacts/*/dist
+artifacts/mockup-sandbox
+
+# Large private media must live in external storage for Vercel.
+artifacts/api-server/private/images
+artifacts/api-server/private/media
+artifacts/api-server/private/posters
+artifacts/api-server/private/videos
