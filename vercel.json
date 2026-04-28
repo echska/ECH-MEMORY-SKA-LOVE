@@ -1,4 +1,9 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public"
+}
+
+{
   "buildCommand": "pnpm --filter @workspace/nafsam run build",
   "outputDirectory": "artifacts/nafsam/dist/public",
   "installCommand": "pnpm install",
