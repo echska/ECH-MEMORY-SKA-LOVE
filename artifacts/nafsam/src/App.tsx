@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Switch, Route, Router as WouterRouter, useLocation, Redirect } from "wouter";
+import { Analytics } from "@vercel/analytics/react";
 import { useLang } from "@/hooks/useLang";
 import Rain from "@/components/Rain";
 import Navbar from "@/components/Navbar";
@@ -87,6 +88,7 @@ function App() {
   return (
     <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <AppContent />
+      <Analytics />
     </WouterRouter>
   );
 }
