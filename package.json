@@ -19,4 +19,7 @@
     "@vercel/speed-insights": "^2.0.0",
     "adm-zip": "^0.5.17"
   }
+  "engines" : {
+  "node": "20.x"
+}
 }
