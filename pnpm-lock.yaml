@@ -60,9 +60,6 @@ catalogs:
     tailwindcss:
       specifier: ^4.1.14
       version: 4.2.1
-    tsx:
-      specifier: ^4.21.0
-      version: 4.21.0
     vite:
       specifier: ^7.3.2
       version: 7.3.2
@@ -641,13 +638,20 @@ importers:
         version: 0.31.9
 
   scripts:
+    dependencies:
+      '@vercel/speed-insights':
+        specifier: ^2.0.0
+        version: 2.0.0(react@19.1.0)
+      adm-zip:
+        specifier: ^0.5.17
+        version: 0.5.17
     devDependencies:
-      '@types/node':
-        specifier: 'catalog:'
-        version: 25.3.5
-      tsx:
-        specifier: 'catalog:'
-        version: 4.21.0
+      prettier:
+        specifier: ^3.8.1
+        version: 3.8.1
+      typescript:
+        specifier: ~5.9.2
+        version: 5.9.3
 
 packages:
 

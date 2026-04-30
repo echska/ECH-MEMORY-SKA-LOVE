@@ -4,9 +4,6 @@
   "license": "MIT",
   "private": true,
   "packageManager": "pnpm@10.32.1",
-  "engines": {
-    "node": "20.x"
-  },
   "scripts": {
     "preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'",
     "build": "pnpm run typecheck && pnpm -r --if-present run build",
@@ -21,5 +18,8 @@
   "dependencies": {
     "@vercel/speed-insights": "^2.0.0",
     "adm-zip": "^0.5.17"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
