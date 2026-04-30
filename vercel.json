@@ -1,5 +1,5 @@
-
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist/public"
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "artifacts/nafsam/dist/public"
 }
